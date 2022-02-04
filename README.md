@@ -38,6 +38,7 @@ can then check the queue messages via zmq *pull* at its own leisure.
 Command documentation
 ------------------------
 
+```
 class Worker(builtins.object)
  |  ZMQ server that waits for commands from Controller and sends responses to Controller
  |
@@ -77,3 +78,4 @@ class Controller(builtins.object)
  |
  |  sendCmd(self, worker_id, cmd)
  |      Sends bytestring cmd to worker_id
+```
