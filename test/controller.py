@@ -10,11 +10,11 @@ controller = zmqLanl.Controller(in_socket=status_queue_addr, out_socket=router_d
 print('Waiting for workerStatus monitor to launch...')
 time.sleep(1)
 
-workerNames = [b'A', b'B', b'C']
+workerNames = zmqLanl.toListByteStrings(['A', 'B', 'C'])
 
 print('Greeting workers ', workerNames)
 for w in workerNames:
-    controller.sendCmd( w, [b'Hello'])
+    controller.sendCmd( w, b'Hello')
 
 time.sleep(1)
 print('Checking for responses...')

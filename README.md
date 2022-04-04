@@ -2,7 +2,7 @@ zmqLanl
 ================
 This minimal python library provides a ZeroMQ (zmq) wrapper for interface with the LANL nEDM main control system.
 The idea of this package is that as the communication network for the LANL control system gets increasingly complicated,
-users will not have to learn the details and simply have to run a simple `worker.recvMsg()` or `worker.sendMsg()` to interface with the slow control
+users will not have to learn the details and simply have to run `worker.recvMsg()` or `worker.sendMsg()` to interface with the slow control
 
 Installation
 ---------------
@@ -29,7 +29,7 @@ ZeroMQ design layout overview
 -------------------------------
 
 For the LANL nEDM control layout, we have multiple *worker* servers (such as the fast daq adc, magnetometer readouts, environmental monitoring, etc).
-These workers as designated as zmq *dealers*. These worker servers wait for commands from the the *main control system*, designated as a zmq *router*. It is of
+These workers are designated as zmq *dealers*. These worker servers wait for commands from the the *main control system*, designated as a zmq *router*. It is of
 note that the main control system sends commands without waiting for responses to avoid hanging if a worker server is inactive/unresponsive.
 
 The worker servers send outbound status/response messages via zmq *push* to a queue that is hosted on the main control system. The main control system
